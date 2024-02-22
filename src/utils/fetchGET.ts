@@ -7,7 +7,7 @@ export const fetchGET = async () => {
         method: "GET",
         headers: {
           //@ts-ignore
-          "X-M2m-Origin": process.env.NEXT_PUBLIC_ACCESS_KEY,
+          "X-M2m-Origin": process.env.ACCESS_KEY,
           "Content-Type": "application/json;ty=4",
           Accept: "application/json",
         },
@@ -16,7 +16,7 @@ export const fetchGET = async () => {
     );
 
     const json = await res.json();
-    return json;
+    return JSON.parse(json["m2m:cin"].con);
   } catch (error) {
     throw error;
   }
