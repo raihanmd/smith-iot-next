@@ -2,12 +2,12 @@ export const fetchGET = async () => {
   try {
     const res = await fetch(
       //@ts-ignore
-      process.env.NEXT_PUBLIC_API_URL as string,
+      process.env.NEXT_PUBLIC_API_URL,
       {
         method: "GET",
         headers: {
           //@ts-ignore
-          "X-M2m-Origin": process.env.NEXT_PUBLIC_ACCESS_KEY as string,
+          "X-M2m-Origin": process.env.NEXT_PUBLIC_ACCESS_KEY,
           "Content-Type": "application/json;ty=4",
           Accept: "application/json",
         },
