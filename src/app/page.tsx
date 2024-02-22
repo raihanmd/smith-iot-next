@@ -1,9 +1,6 @@
-"use client";
-
 import { fetchGET } from "@/utils/fetchGET";
 
-export default async function Home() {
+export default async function page() {
   const data = await fetchGET();
-
-  return <main>{JSON.stringify(data["m2m:cin"].con)}</main>;
+  return <div>{JSON.stringify(data)}</div>;
 }
