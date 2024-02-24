@@ -3,9 +3,11 @@
 import { Flex, Heading, SimpleGrid } from "@chakra-ui/react";
 import GaugeChart from "@/libs/react-gauge-chart";
 
-import { MainContentProps } from "../../types";
+import { useRootContext } from "@/contexts/RootContext";
 
-export default function MainContent({ data }: MainContentProps) {
+export default function MainContent() {
+  const data = useRootContext();
+
   return (
     <SimpleGrid columns={2} gap={"5"} px={"2"}>
       <Flex

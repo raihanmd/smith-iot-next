@@ -1,9 +1,15 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Gabarito } from "next/font/google";
 
 import { ChakraUIProvider } from "./providers/ChakraUIProvider";
 import Header from "@/app/_libs/components/Header";
-const inter = Inter({ subsets: ["latin"] });
+import { RootWrapper } from "@/contexts/RootContext";
+
+const gabarito = Gabarito({ subsets: ["latin"] });
+
+export const viewport: Viewport = {
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   title: "PWA with Next 13",
@@ -19,10 +25,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={gabarito.className}>
         <ChakraUIProvider>
-          <Header />
-          {children}
+          <RootWrapper>
+            <Header />
+            {children}
+          </RootWrapper>
         </ChakraUIProvider>
       </body>
     </html>

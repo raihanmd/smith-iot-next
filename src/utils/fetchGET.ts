@@ -14,6 +14,8 @@ export const fetchGET = async (): Promise<TData> => {
     );
 
     const json = await res.json();
+    console.log(json);
+
     return JSON.parse(json["m2m:cin"].con) as TData;
   } catch (error) {
     throw error;
