@@ -10,7 +10,7 @@ export type TData = {
 export type RootContent = TData;
 
 export type RootWrapperProps = ChildrenProps & {
-  data: any;
+  data: TData;
 };
 
 export type ChildrenProps = {

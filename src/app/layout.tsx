@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Gabarito } from "next/font/google";
 
+import "@/styles/main.css";
 import { ChakraUIProvider } from "./providers/ChakraUIProvider";
 import Header from "@/app/_libs/components/Header";
-import { RootWrapper } from "@/contexts/RootContext";
+import RootProvider from "./providers/RootProvider";
 
 const gabarito = Gabarito({ subsets: ["latin"] });
 
@@ -27,10 +28,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={gabarito.className}>
         <ChakraUIProvider>
-          <RootWrapper>
+          <RootProvider>
             <Header />
             {children}
-          </RootWrapper>
+          </RootProvider>
         </ChakraUIProvider>
       </body>
     </html>

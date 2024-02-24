@@ -1,6 +1,6 @@
 import MainContent from "./_libs/components/MainContent";
 
-export default async function page() {
+export default function Page() {
   return (
     <>
       <MainContent />

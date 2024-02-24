@@ -1,23 +1,21 @@
 import { TData } from "@/types";
-import headers from "./headers.api";
 
-export const fetchGET = async (): Promise<TData> => {
+const fetchGET = async (): Promise<TData> => {
   try {
-    const res = await fetch(
-      //@ts-ignore
-      process.env.NEXT_PUBLIC_API_URL,
-      {
-        method: "GET",
-        headers,
-        next: { revalidate: 10 },
-      }
-    );
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL as string, {
+      method: "GET",
+      headers: {
+        "X-M2M-Origin": process.env.NEXT_PUBLIC_ACCESS_KEY || "",
+        "Content-Type": "application/json;ty=4",
+        Accept: "application/json",
+      },
+    });
 
     const json = await res.json();
-    console.log(json);
-
-    return JSON.parse(json["m2m:cin"].con) as TData;
+    return JSON.parse(json["m2m:cin"].con);
   } catch (error) {
     throw error;
   }
 };
+
+export default fetchGET;
