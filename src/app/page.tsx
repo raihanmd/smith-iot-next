@@ -1,17 +1,12 @@
 import { fetchGET } from "@/utils/fetchGET";
+import MainContent from "./_libs/components/MainContent";
 
 export default async function page() {
-  let data: any;
-  try {
-    data = await fetchGET();
-  } catch (e) {
-    console.log(e);
-  }
+  const data = await fetchGET();
   return (
-    <div>
-      <h1>Proximity: {data.proximity}</h1>
-      <h1>Temp: {data.temperature}</h1>
-      <h1>Humidity: {data.humidity}</h1>
-    </div>
+    <>
+      {JSON.stringify(data)}
+      <MainContent data={data} />
+    </>
   );
 }
