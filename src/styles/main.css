@@ -1,12 +1,12 @@
 body {
   background-color: var(--chakra-colors-background);
+  padding: 0 1rem;
 }
 
 .root {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 0 1rem;
 }
 
 ::-moz-selection {

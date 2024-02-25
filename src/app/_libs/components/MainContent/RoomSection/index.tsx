@@ -1,9 +1,14 @@
 "use client";
 
+import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { Flex, Heading, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+
 import { useRootContext } from "@/contexts/RootContext";
-const GaugeComponent = dynamic(() => import("react-gauge-component"), {
+import GaugeComponentLoader from "@/app/_libs/loaders/GaugeComponent.loader";
+
+const DynamicGaugeComponent = dynamic(() => import("./DynamicGaugeComponent"), {
+  loading: () => <GaugeComponentLoader />,
   ssr: false,
 });
 
@@ -26,77 +31,9 @@ export default function RoomSection() {
           direction={"column"}
         >
           <Text color={"text.secondary"}>Temperature in Living Room</Text>
-          <GaugeComponent
-            id="gauge-component-1"
-            type="semicircle"
-            arc={{
-              gradient: false,
-              width: 0.15,
-              subArcs: [
-                {
-                  limit: 19,
-                  color: "#0495fb",
-                  showTick: true,
-                  tooltip: {
-                    text: "Cold ❄️",
-                    style: {
-                      backgroundColor: "var(--chakra-colors-foreground)",
-                      color: "var(--chakra-colors-text-primary)",
-                      textShadow: "none",
-                      borderRadius: "8px",
-                      border: "none",
-                    },
-                  },
-                },
-                {
-                  limit: 35,
-                  color: "#47b854",
-                  showTick: true,
-                  tooltip: {
-                    text: "Ideal 🍃",
-                    style: {
-                      backgroundColor: "var(--chakra-colors-foreground)",
-                      color: "var(--chakra-colors-text-primary)",
-
-                      textShadow: "none",
-                      borderRadius: "8px",
-                      border: "none",
-                    },
-                  },
-                },
-                {
-                  limit: 45,
-                  color: "#c74638",
-                  showTick: true,
-                  tooltip: {
-                    text: "Hot 🔥",
-                    style: {
-                      backgroundColor: "var(--chakra-colors-foreground)",
-                      color: "var(--chakra-colors-text-primary)",
-
-                      textShadow: "none",
-                      borderRadius: "8px",
-                      border: "none",
-                    },
-                  },
-                },
-              ],
-            }}
-            pointer={{ color: "var(--chakra-colors-secondary)" }}
-            labels={{
-              valueLabel: {
-                formatTextValue(value) {
-                  return value + "°C";
-                },
-                style: {
-                  fill: "var(--chakra-colors-text-primary)",
-                  textShadow: "none",
-                },
-              },
-            }}
-            value={antares?.temperature}
-            maxValue={45}
-          />
+          <Suspense fallback={<p>Loading...</p>}>
+            <DynamicGaugeComponent antares={antares} type="temperature" />
+          </Suspense>
         </Flex>
         <Flex
           p={"5"}
@@ -108,77 +45,9 @@ export default function RoomSection() {
           direction={"column"}
         >
           <Text color={"text.secondary"}>Humidity in Living Room</Text>
-          <GaugeComponent
-            id="gauge-component-2"
-            type="semicircle"
-            arc={{
-              gradient: false,
-              width: 0.15,
-              subArcs: [
-                {
-                  limit: 40,
-                  color: "#c74638",
-                  showTick: true,
-                  tooltip: {
-                    text: "Dry 🌵",
-                    style: {
-                      backgroundColor: "var(--chakra-colors-foreground)",
-                      color: "var(--chakra-colors-text-primary)",
-                      textShadow: "none",
-                      borderRadius: "8px",
-                      border: "none",
-                    },
-                  },
-                },
-                {
-                  limit: 70,
-                  color: "#47b854",
-                  showTick: true,
-                  tooltip: {
-                    text: "Normal 🌿",
-                    style: {
-                      backgroundColor: "var(--chakra-colors-foreground)",
-                      color: "var(--chakra-colors-text-primary)",
-
-                      textShadow: "none",
-                      borderRadius: "8px",
-                      border: "none",
-                    },
-                  },
-                },
-                {
-                  limit: 100,
-                  color: "#0495fb",
-                  showTick: true,
-                  tooltip: {
-                    text: "Wet 💧",
-                    style: {
-                      backgroundColor: "var(--chakra-colors-foreground)",
-                      color: "var(--chakra-colors-text-primary)",
-
-                      textShadow: "none",
-                      borderRadius: "8px",
-                      border: "none",
-                    },
-                  },
-                },
-              ],
-            }}
-            pointer={{ color: "var(--chakra-colors-secondary)" }}
-            labels={{
-              valueLabel: {
-                formatTextValue(value) {
-                  return value + "% RH";
-                },
-                style: {
-                  fill: "var(--chakra-colors-text-primary)",
-                  textShadow: "none",
-                },
-              },
-            }}
-            value={antares?.humidity}
-            maxValue={100}
-          />
+          <Suspense fallback={<p>Loading...</p>}>
+            <DynamicGaugeComponent antares={antares} type="humidity" />
+          </Suspense>
         </Flex>
       </SimpleGrid>
     </Stack>
