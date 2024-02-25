@@ -4,10 +4,17 @@ import { RootContent, RootWrapperProps } from "@/types";
 import { createContext, useContext } from "react";
 
 export const RootContext = createContext<RootContent>({
-  action: 0,
-  humidity: 0,
-  proximity: 0,
-  temperature: 0,
+  weather: {
+    wind_force: 0,
+    icon: "04d",
+    main: "",
+  },
+  antares: {
+    action: 0,
+    humidity: 0,
+    proximity: 0,
+    temperature: 0,
+  },
 });
 
 export function useRootContext() {

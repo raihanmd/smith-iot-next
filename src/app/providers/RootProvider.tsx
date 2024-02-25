@@ -1,15 +1,21 @@
+import type { ChildrenProps, TAntares, TWeather } from "@/types";
 import { RootWrapper } from "@/contexts/RootContext";
-import { ChildrenProps, TData } from "@/types";
-import fetchGET from "@/utils/fetchGET";
+import fetchWeather from "@/utils/fetchWeather";
+import fetchAntares from "@/utils/fetchGET";
 
-let data: TData;
+let antares: TAntares;
+let weather: TWeather;
 
-async function getData() {
-  data = await fetchGET();
+async function getAntares() {
+  antares = await fetchAntares();
+}
+async function getWeather() {
+  weather = await fetchWeather();
 }
 
-getData();
+getAntares();
+getWeather();
 
 export default function RootProvider({ children }: ChildrenProps) {
-  return <RootWrapper data={data}>{children}</RootWrapper>;
+  return <RootWrapper data={{ antares, weather }}>{children}</RootWrapper>;
 }

@@ -1,14 +1,12 @@
-import { TData } from "@/types";
+import { TAntares } from "@/types";
+import headers from "./headers.api";
 
-const fetchGET = async (): Promise<TData> => {
+const fetchAntares = async (): Promise<TAntares> => {
   try {
     const res = await fetch(process.env.NEXT_PUBLIC_API_URL as string, {
       method: "GET",
-      headers: {
-        "X-M2M-Origin": process.env.NEXT_PUBLIC_ACCESS_KEY || "",
-        "Content-Type": "application/json;ty=4",
-        Accept: "application/json",
-      },
+      headers,
+      next: { revalidate: 10 },
     });
 
     const json = await res.json();
@@ -18,4 +16,4 @@ const fetchGET = async (): Promise<TData> => {
   }
 };
 
-export default fetchGET;
+export default fetchAntares;

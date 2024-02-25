@@ -5,7 +5,7 @@ import { MdKeyboardCommandKey } from "react-icons/md";
 
 export default function Header() {
   return (
-    <Stack px={"2"} pt={"10"} pb={"4"} gap={"0"}>
+    <Stack pt={"10"} pb={"4"} gap={"0"}>
       <Flex justify={"space-between"} align={"center"}>
         <Heading color={"text.primary"} fontSize={"2xl"}>
           Hi, Smith!

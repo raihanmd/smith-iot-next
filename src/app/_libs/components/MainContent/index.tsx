@@ -8,7 +8,6 @@ import { useRootContext } from "@/contexts/RootContext";
 
 export default function MainContent() {
   const data = useRootContext();
-  if (!data) <>Hello</>;
 
   return (
     <>

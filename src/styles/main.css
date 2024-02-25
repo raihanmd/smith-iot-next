@@ -1,3 +1,13 @@
 body {
   background-color: var(--chakra-colors-background);
 }
+
+::-moz-selection {
+  color: var(--chakra-colors-text-primary);
+  background: var(--chakra-colors-secondary);
+}
+
+::selection {
+  color: var(--chakra-colors-text-primary);
+  background: var(--chakra-colors-secondary);
+}

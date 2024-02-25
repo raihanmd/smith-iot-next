@@ -1,4 +1,7 @@
 const nextConfig = {
+  images: {
+    domains: ["openweathermap.org"],
+  },
   reactStrictMode: true, // Enable React strict mode for improved error handling
   swcMinify: true, // Enable SWC minification for improved performance
 };
