@@ -56,7 +56,7 @@ export default function WeatheCard() {
         align={"center"}
       >
         <Flex direction={"column"} justify={"center"} align={"center"}>
-          <Text fontSize={"lg"}>{weather?.humidity}%</Text>
+          <Text fontSize={"lg"}>{weather?.humidity}% RH</Text>
           <Text fontSize={"sm"}>Humidity</Text>
         </Flex>
         <Flex direction={"column"} justify={"center"} align={"center"}>
