@@ -3282,7 +3282,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/d3@npm:^7":
+"@types/d3@npm:^7, @types/d3@npm:^7.4.0":
   version: 7.4.3
   resolution: "@types/d3@npm:7.4.3"
   dependencies:
@@ -4363,7 +4363,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"d3@npm:^7.8.5":
+"d3@npm:^7.6.1, d3@npm:^7.8.5":
   version: 7.8.5
   resolution: "d3@npm:7.8.5"
   dependencies:
@@ -5695,7 +5695,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.20":
+"lodash@npm:^4.17.20, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 10c0/d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
@@ -6441,6 +6441,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-gauge-component@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "react-gauge-component@npm:1.2.0"
+  dependencies:
+    "@types/d3": "npm:^7.4.0"
+    d3: "npm:^7.6.1"
+    lodash: "npm:^4.17.21"
+  peerDependencies:
+    react: ^16.8.2 || ^17.0 || ^18.x
+    react-dom: ^16.8.2 || ^17.0 || ^18.x
+  checksum: 10c0/5f9fb7f4cb007b690f39010c9394af5ae80021b495ea12e9cff0ae8e6e06eafe25d40b3a35e2da21867df7a7fa708608e4f5cd7c1129f81d1a16ca5a346c0251
+  languageName: node
+  linkType: hard
+
 "react-icons@npm:^5.0.1":
   version: 5.0.1
   resolution: "react-icons@npm:5.0.1"
@@ -6905,6 +6919,7 @@ __metadata:
     next-pwa: "npm:^5.6.0"
     react: "npm:^18"
     react-dom: "npm:^18"
+    react-gauge-component: "npm:^1.2.0"
     react-icons: "npm:^5.0.1"
     typescript: "npm:^5"
     zustand: "npm:^4.5.1"

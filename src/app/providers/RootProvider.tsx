@@ -1,7 +1,7 @@
 import type { ChildrenProps, TAntares, TWeather } from "@/types";
 import { RootWrapper } from "@/contexts/RootContext";
 import fetchWeather from "@/utils/fetchWeather";
-import fetchAntares from "@/utils/fetchGET";
+import fetchAntares from "@/utils/fetchAntares";
 
 let antares: TAntares;
 let weather: TWeather;

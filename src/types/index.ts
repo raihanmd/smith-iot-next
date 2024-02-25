@@ -8,6 +8,8 @@ export type TAntares = {
 };
 
 export type TWeather = {
+  temperature: number;
+  humidity: number;
   main: string;
   icon: string;
   wind_force: number;

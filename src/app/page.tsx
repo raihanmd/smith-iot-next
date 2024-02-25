@@ -1,15 +1,13 @@
-"use client";
-
-import { Stack } from "@chakra-ui/react";
-
 import MainContent from "./_libs/components/MainContent";
 import Header from "./_libs/components/Header";
 
+export const dynamic = "force-dynamic";
+
 export default function Page() {
   return (
-    <Stack px={"2"}>
+    <div className="root">
       <Header />
       <MainContent />
-    </Stack>
+    </div>
   );
 }

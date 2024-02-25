@@ -5,6 +5,8 @@ import { createContext, useContext } from "react";
 
 export const RootContext = createContext<RootContent>({
   weather: {
+    humidity: 0,
+    temperature: 0,
     wind_force: 0,
     icon: "04d",
     main: "",

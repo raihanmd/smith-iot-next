@@ -5,6 +5,7 @@ import GaugeChart from "@/libs/react-gauge-chart";
 
 import WeatheCard from "./WeatherCard";
 import { useRootContext } from "@/contexts/RootContext";
+import RoomSection from "./RoomSection";
 
 export default function MainContent() {
   const data = useRootContext();
@@ -12,7 +13,7 @@ export default function MainContent() {
   return (
     <>
       <WeatheCard />
-      {JSON.stringify(data)}
+      <RoomSection />
       {/* <SimpleGrid columns={2} gap={"5"} px={"2"}>
         <Flex
           w={"full"}
